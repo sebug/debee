@@ -30,13 +30,18 @@ def debee(letter_string, center_letter):
     letters = sorted_unique_list(letter_string)
     sublists = possible_sublists(letters)
     stringset = string_set([l for l in sublists if len(l) > 0])
+    result = []
     with open('words.txt') as file:
         for line in file:
             word = line.rstrip().lower()
             if len(word) > 3:
                 key = ''.join(sorted_unique_list(word))
                 if key in stringset and center_letter in word:
-                    print(word)
+                    result.append(word)
+    result = sorted(result, key=lambda w: len(w))
+    for word in result:
+        print(word)
+    print(len(result))
 
 def main():
     parser = argparse.ArgumentParser(description="DeBee",
