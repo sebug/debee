@@ -15,7 +15,7 @@ def possible_sublists(list):
             without_element = sublist.copy()
             result.append(without_element)
             result.append(with_element)
-        return [l for l in result if len(l) > 0]
+        return sorted([sorted(l) for l in result], key = lambda l: -len(l))
 
 def debee(letter_string):
     letters = list(letter_string)
