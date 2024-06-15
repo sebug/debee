@@ -38,6 +38,7 @@ def debee(letter_string, center_letter):
                 key = ''.join(sorted_unique_list(word))
                 if key in stringset and center_letter in word:
                     result.append(word)
+    result = list(set(result))
     result = sorted(result, key=lambda w: len(w))
     for word in result:
         print(word)
