@@ -17,6 +17,9 @@ def possible_sublists(list):
             result.append(with_element)
         return sorted([sorted(l) for l in result], key = lambda l: -len(l))
     
+def string_set(sublists):
+    return set([''.join(l) for l in sublists])
+    
 def sorted_unique_list(letter_string):
     letters = list(letter_string)
     letters = set(letters)
@@ -26,7 +29,8 @@ def sorted_unique_list(letter_string):
 def debee(letter_string):
     letters = sorted_unique_list(letter_string)
     sublists = possible_sublists(letters)
-    print(sublists)
+    stringset = string_set([l for l in sublists if len(l) > 0])
+    print(stringset)
 
 def main():
     parser = argparse.ArgumentParser(description="DeBee",
