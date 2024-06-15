@@ -16,10 +16,15 @@ def possible_sublists(list):
             result.append(without_element)
             result.append(with_element)
         return sorted([sorted(l) for l in result], key = lambda l: -len(l))
+    
+def sorted_unique_list(letter_string):
+    letters = list(letter_string)
+    letters = set(letters)
+    letters = sorted(list(letters))
+    return letters
 
 def debee(letter_string):
-    letters = list(letter_string)
-    letters = sorted(letters)
+    letters = sorted_unique_list(letter_string)
     sublists = possible_sublists(letters)
     print(sublists)
 
