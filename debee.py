@@ -1,6 +1,7 @@
 import argparse
 
-def debee(letters):
+def debee(letter_string):
+    letters = list(letter_string)
     print(letters)
 
 def main():
