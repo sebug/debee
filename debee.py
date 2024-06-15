@@ -2,6 +2,7 @@ import argparse
 
 def debee(letter_string):
     letters = list(letter_string)
+    letters = sorted(letters)
     print(letters)
 
 def main():
