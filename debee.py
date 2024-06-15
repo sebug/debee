@@ -1,9 +1,27 @@
 import argparse
 
+# Get the power set of list
+def possible_sublists(list):
+    if len(list) == 0:
+        return [[]]
+    else:
+        result = []
+        first_element = list[0]
+        rest = list[1:]
+        sublists = possible_sublists(rest)
+        for sublist in sublists:
+            with_element = sublist.copy()
+            with_element.append(first_element)
+            without_element = sublist.copy()
+            result.append(without_element)
+            result.append(with_element)
+        return [l for l in result if len(l) > 0]
+
 def debee(letter_string):
     letters = list(letter_string)
     letters = sorted(letters)
-    print(letters)
+    sublists = possible_sublists(letters)
+    print(sublists)
 
 def main():
     parser = argparse.ArgumentParser(description="DeBee",
